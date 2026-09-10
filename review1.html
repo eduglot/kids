@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUGLOT - Review 1: Checkpoint (Starter - Unit 3)</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="presentation-container">
+        <!-- Top Branding Bar with Vector Print Button -->
+        <div class="brand-bar">
+            <span>EDUGLOT</span>
+            <div class="brand-bar-right">
+                <span class="tagline">Speak with Confidence</span>
+                <button class="icon-btn-print" onclick="printAllSlides()"
+                    title="Print complete review checkpoint worksheet">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide Header -->
+        <div class="slide-header" style="background: #0284c7;">
+            <h2 id="slide-title">Stage 1: Warm-up & Review Goals</h2>
+            <span class="slide-indicator" id="slide-indicator">Slide 1 / 7</span>
+        </div>
+
+        <!-- VOCAB MODAL (Audio, Definition & Example) -->
+        <div class="modal-overlay" id="vocab-modal" onclick="closeModal(event)">
+            <div class="modal-card">
+                <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+
+                <div class="modal-header-section">
+                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">⭐</span>
+                    <h3 id="modal-word" style="font-size: 1.8rem; color: var(--primary); font-weight: 800;">WORD</h3>
+                    <p id="modal-phonetic" style="color: #64748b; font-style: italic; font-size: 1rem;">/phonetic/</p>
+                    <button class="modal-audio-btn" onclick="speakCurrentWord()">🔊 Listen Word</button>
+                </div>
+
+                <div class="modal-details">
+                    <div class="detail-block">
+                        <div class="detail-title">Definition</div>
+                        <p class="detail-text" id="modal-def">Definition text goes here.</p>
+                    </div>
+
+                    <div class="detail-block example-box">
+                        <div class="detail-title">
+                            <span>Example Sentence</span>
+                            <button class="example-sound-btn" onclick="speakCurrentExample()">🔊 Read</button>
+                        </div>
+                        <p class="detail-text" id="modal-example">"Example sentence goes here."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: GOALS & VOCABULARY RECALL (10 mins) -->
+        <div class="slide-content active">
+            <div class="objectives-card">
+                <h4>🎯 Review 1 Checkpoint Goals</h4>
+                <ul>
+                    <li>Review question words from Starter Unit: <em>What, Who, How, How old</em>.</li>
+                    <li>Distinguish singular vs plural and indefinite articles: <strong>a</strong>, <strong>an</strong>,
+                        and <strong>plural -s</strong>.</li>
+                    <li>Contrast demonstratives and possessives: <strong>This is / These are</strong> and <strong>my /
+                            your</strong>.</li>
+                    <li>Answer yes/no confirmation questions with accuracy: <em>"Is this / Is it...?" &rarr; "Yes, it
+                            is. / No, it isn't."</em></li>
+                </ul>
+            </div>
+
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Rapid fire round! Click random cards from the three units and see if
+                    students can remember whether each item uses 'a' or 'an', or if it is a toy, body part, or school
+                    item.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>⭐ Diagnostic Word Bank (Units 1–3)</h3>
+                <p>Click any item to refresh pronunciation, meaning, and sample sentence!</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="vocab-card"
+                    onclick="openModal('pencil', '✏️', '/ˈpen.səl/', 'A school tool used for writing or sketching.', 'It is a sharp pencil.')">
+                    <span class="emoji-lg">✏️</span>pencil<span class="card-hint">🔊 Unit 1</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('apple', '🍎', '/ˈæp.əl/', 'A round sweet fruit with thin red skin.', 'It is an apple.')">
+                    <span class="emoji-lg">🍎</span>apple<span class="card-hint">🔊 Unit 1</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('teddy', '🧸', '/ˈted.i/', 'A stuffed cloth bear toy for hugging.', 'This is your teddy.')">
+                    <span class="emoji-lg">🧸</span>teddy<span class="card-hint">🔊 Unit 2</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('train', '🚂', '/treɪn/', 'A toy engine on connected wheels.', 'This is my toy train.')">
+                    <span class="emoji-lg">🚂</span>train<span class="card-hint">🔊 Unit 2</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('arm', '💪', '/ɑːm/', 'The upper limb of your body.', 'Raise your arm.')">
+                    <span class="emoji-lg">💪</span>arm<span class="card-hint">🔊 Unit 3</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('eyes', '👀', '/aɪz/', 'The pair of organs used for seeing.', 'These are two eyes.')">
+                    <span class="emoji-lg">👀</span>eyes<span class="card-hint">🔊 Unit 3</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('fingers', '🖐️', '/ˈfɪŋ.ɡəz/', 'The ten flexible digits on both hands.', 'These are ten fingers.')">
+                    <span class="emoji-lg">🖐️</span>fingers<span class="card-hint">🔊 Unit 3</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('puzzle', '🧩', '/ˈpʌz.əl/', 'A game of fitting pieces together.', 'Is this your puzzle?')">
+                    <span class="emoji-lg">🧩</span>puzzle<span class="card-hint">🔊 Unit 2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: GRAMMAR SUMMARY & CHEAT SHEET (10 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Walk through the three grammar pillars: Articles (Unit 1), Possessives
+                    (Unit 2), and Demonstratives (Unit 3). Ask students to generate one original sentence for each
+                    column.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>Grammar Matrix: Starter to Unit 3</h3>
+                <p>Review the rules side by side before starting the practice challenges.</p>
+            </div>
+
+            <div class="vocab-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                <div class="vocab-card" style="text-align: left; padding: 16px;">
+                    <h4 style="color: var(--primary); margin-bottom: 8px;">1. Articles (A vs An)</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.5;">
+                        • <strong>a</strong> + consonant sound: <em>a pen, a book, a ruler</em><br>
+                        • <strong>an</strong> + vowel sound: <em>an apple, an eraser, an umbrella</em>
+                    </p>
+                </div>
+
+                <div class="vocab-card" style="text-align: left; padding: 16px;">
+                    <h4 style="color: #0284c7; margin-bottom: 8px;">2. My / Your & Questions</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.5;">
+                        • <strong>my</strong> = belongs to me: <em>my kite, my doll</em><br>
+                        • <strong>your</strong> = belongs to you: <em>your train</em><br>
+                        • <strong>Is this...?</strong> &rarr; <em>Yes, it is. / No, it isn't.</em>
+                    </p>
+                </div>
+
+                <div class="vocab-card" style="text-align: left; padding: 16px;">
+                    <h4 style="color: var(--accent); margin-bottom: 8px;">3. This is vs These are</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.5;">
+                        • <strong>This is</strong> (1 item): <em>This is my nose.</em><br>
+                        • <strong>These are</strong> (2+ items): <em>These are my legs.</em><br>
+                        • <strong>Plural:</strong> add <strong>-s</strong> (<em>ear &rarr; ears</em>)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: CHECKPOINT 1 (Articles & Wh- Question Words) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Check question words (What for things, Who for people, How old for
+                    age) and correct usage of a/an.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Challenge A: Question Words & Articles
+                (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1.</span>
+                        <select class="quiz-select q-set-1" data-correct="What's">
+                            <option value="">--</option>
+                            <option value="What's">What's</option>
+                            <option value="Who's">Who's</option>
+                        </select>
+                        <span>your name? - My name's Tom.</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2.</span>
+                        <select class="quiz-select q-set-1" data-correct="Who's">
+                            <option value="">--</option>
+                            <option value="What's">What's</option>
+                            <option value="Who's">Who's</option>
+                        </select>
+                        <span>this? - This is Mary.</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. How</span>
+                        <select class="quiz-select q-set-1" data-correct="old">
+                            <option value="">--</option>
+                            <option value="are">are</option>
+                            <option value="old">old</option>
+                        </select>
+                        <span>are you? - I'm seven.</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. It's</span>
+                        <select class="quiz-select q-set-1" data-correct="an">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>ear. 👂</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. It's</span>
+                        <select class="quiz-select q-set-1" data-correct="a">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>door. 🚪</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. It's</span>
+                        <select class="quiz-select q-set-1" data-correct="an">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>orange. 🍊</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. It's</span>
+                        <select class="quiz-select q-set-1" data-correct="a">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>pencil case. ✏️</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. It's</span>
+                        <select class="quiz-select q-set-1" data-correct="an">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>arm. 💪</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-1')">Check Answers (Challenge A)</button>
+        </div>
+
+        <!-- SLIDE 4: CHECKPOINT 2 (Toys, Demonstratives & Plurals) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Watch for number agreement: Is it singular ("This is", "is") or plural
+                    ("These are", "are", "-s")?
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Challenge B: Demonstratives, Plurals &
+                Answers (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <select class="quiz-select q-set-2" data-correct="This is">
+                            <option value="">--</option>
+                            <option value="This is">This is</option>
+                            <option value="These are">These are</option>
+                        </select>
+                        <span>my kite. 🪁</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <select class="quiz-select q-set-2" data-correct="These are">
+                            <option value="">--</option>
+                            <option value="This is">This is</option>
+                            <option value="These are">These are</option>
+                        </select>
+                        <span>my dolls. 🪆</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>The noses</span>
+                        <select class="quiz-select q-set-2" data-correct="are">
+                            <option value="">--</option>
+                            <option value="is">is</option>
+                            <option value="are">are</option>
+                        </select>
+                        <span>pink. 👃</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>The pencil</span>
+                        <select class="quiz-select q-set-2" data-correct="is">
+                            <option value="">--</option>
+                            <option value="is">is</option>
+                            <option value="are">are</option>
+                        </select>
+                        <span>yellow. ✏️</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>⚽ Is this your ball? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-2" data-correct="Yes, it is.">
+                            <option value="">--</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>🚗 Is it a train? (No) &rarr;</span>
+                        <select class="quiz-select q-set-2" data-correct="No, it isn't.">
+                            <option value="">--</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <select class="quiz-select q-set-2" data-correct="These are">
+                            <option value="">--</option>
+                            <option value="This is">This is</option>
+                            <option value="These are">These are</option>
+                        </select>
+                        <span>my fingers. 🖐️</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>I have two</span>
+                        <select class="quiz-select q-set-2" data-correct="legs">
+                            <option value="">--</option>
+                            <option value="leg">leg</option>
+                            <option value="legs">legs</option>
+                        </select>
+                        <span>. 🦵</span>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-2')">Check Answers (Challenge B)</button>
+        </div>
+
+        <!-- SLIDE 5: GUIDED PRODUCTION (Comprehensive Dialogue) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Have students pair up for this dialogue. It connects greetings
+                    (Starter), school supplies (Unit 1), toys (Unit 2), and body features (Unit 3).
+                </div>
+            </div>
+
+            <p style="margin-bottom: 10px; font-weight: bold; font-size: 1.1rem;">Engoo-Style Roleplay: Meeting at
+                School</p>
+
+            <div class="dialogue-box">
+                <p><span class="speaker">Jamie:</span> Hello! What's your name?</p>
+                <p><span class="speaker">Rosy:</span> Hi! My name's Rosy. How old are you, Jamie?</p>
+                <p><span class="speaker">Jamie:</span> I'm seven. Look, what's this in my school bag?</p>
+                <p><span class="speaker">Rosy:</span> It's an apple and a new ruler!</p>
+                <p><span class="speaker">Jamie:</span> Yes, it is! And is this your toy car on the desk?</p>
+                <p><span class="speaker">Rosy:</span> No, it isn't. That is Tim's car. This is my teddy!</p>
+                <p><span class="speaker">Jamie:</span> Oh, it's cute! Look at its face. The eyes are brown and the ears
+                    are small!</p>
+                <p><span class="speaker">Rosy:</span> Yes, and these are its fluffy arms!</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: FREE PRODUCTION (Speed Detective Game) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Speed Detective! Call out a category: "Show me a toy!", "Show me a
+                    school item!", or "Point to a body part!". Students race to complete the sentence on microphone.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--accent);">
+                <h3>🎯 Live Speed Detective Game!</h3>
+                <p>Listen to your teacher's prompt and speak using complete sentences!</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🎒</span>
+                    <strong>Mission 1: School Item</strong><br>
+                    Show 1 school item & say:<br>
+                    <em>"This is a / an..."</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🧸</span>
+                    <strong>Mission 2: Favorite Toy</strong><br>
+                    Show 1 toy & ask partner:<br>
+                    <em>"Is this your...?"</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">👀</span>
+                    <strong>Mission 3: Body Parts</strong><br>
+                    Point & count:<br>
+                    <em>"These are my two..."</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONSOLIDATION & MASTERY EXIT TICKET (10 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Final 10-question mastery test! All 10 questions must be correct to
+                    earn the "Review 1 Champion" badge.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--success);">
+                <h3>🏆 Review 1 Grand Mastery Test</h3>
+                <p>Score 10 out of 10 to earn your Review 1 Badge!</p>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. ✏️ It's</span>
+                        <select class="quiz-select q-set-exit" data-correct="a">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>pencil.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 🍎 It's</span>
+                        <select class="quiz-select q-set-exit" data-correct="an">
+                            <option value="">--</option>
+                            <option value="a">a</option>
+                            <option value="an">an</option>
+                        </select>
+                        <span>apple.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. (I) This is</span>
+                        <select class="quiz-select q-set-exit" data-correct="my">
+                            <option value="">--</option>
+                            <option value="my">my</option>
+                            <option value="your">your</option>
+                        </select>
+                        <span>train. 🚂</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. (You) Is this</span>
+                        <select class="quiz-select q-set-exit" data-correct="your">
+                            <option value="">--</option>
+                            <option value="my">my</option>
+                            <option value="your">your</option>
+                        </select>
+                        <span>ball? ⚽</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. 🧸 Is this your teddy? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, it is.">
+                            <option value="">--</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🚗 Is it a bike? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, it isn't.">
+                            <option value="">--</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <select class="quiz-select q-set-exit" data-correct="This is">
+                            <option value="">--</option>
+                            <option value="This is">This is</option>
+                            <option value="These are">These are</option>
+                        </select>
+                        <span>my nose. 👃</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <select class="quiz-select q-set-exit" data-correct="These are">
+                            <option value="">--</option>
+                            <option value="This is">This is</option>
+                            <option value="These are">These are</option>
+                        </select>
+                        <span>my eyes. 👀</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>9. The face</span>
+                        <select class="quiz-select q-set-exit" data-correct="is">
+                            <option value="">--</option>
+                            <option value="is">is</option>
+                            <option value="are">are</option>
+                        </select>
+                        <span>round. 😀</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>10. She has ten</span>
+                        <select class="quiz-select q-set-exit" data-correct="fingers">
+                            <option value="">--</option>
+                            <option value="finger">finger</option>
+                            <option value="fingers">fingers</option>
+                        </select>
+                        <span>. 🖐️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-exit')">Submit Review 1 Exit Ticket</button>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <button class="btn" id="prev-btn" onclick="changeSlide(-1)">Previous</button>
+            <button class="btn" id="next-btn" onclick="changeSlide(1)">Next</button>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="footer-copyright">
+            &copy; 2026 EDUGLOT. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        /* 1. CONTENT THEFT PROTECTION */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) { e.preventDefault(); return false; }
+            if (e.metaKey && e.altKey && e.keyCode === 73) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) { e.preventDefault(); return false; }
+        });
+        document.addEventListener('dragstart', e => e.preventDefault());
+
+        /* 2. SLIDE NAVIGATION */
+        const slides = document.querySelectorAll('.slide-content');
+        const titles = [
+            "Stage 1: Warm-up & Review Goals",
+            "Stage 2: Grammar Matrix (Units 1-3 Summary)",
+            "Stage 3: Challenge A (Wh- Words & Articles)",
+            "Stage 3: Challenge B (Demonstratives & Toys)",
+            "Stage 4: Guided Roleplay (Meeting at School)",
+            "Stage 4: Free Production (Speed Detective)",
+            "Stage 5: Review 1 Grand Mastery Test"
+        ];
+        let currentSlide = 0;
+        let activeWordToSpeak = "";
+        let activeExampleToSpeak = "";
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('slide-title').innerText = titles[currentSlide];
+            document.getElementById('slide-indicator').innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === slides.length - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            updateSlide();
+        }
+
+        /* 3. PRINT WORKSHEET ENGINE */
+        function printAllSlides() {
+            slides.forEach(slide => slide.style.display = 'block');
+            window.print();
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        /* 4. AUDIO PRONUNCIATION & MODAL */
+        function openModal(word, emoji, phonetic, definition, example) {
+            activeWordToSpeak = word;
+            activeExampleToSpeak = example;
+
+            document.getElementById('modal-emoji').innerText = emoji;
+            document.getElementById('modal-word').innerText = word.toUpperCase();
+            document.getElementById('modal-phonetic').innerText = phonetic;
+            document.getElementById('modal-def').innerText = definition;
+            document.getElementById('modal-example').innerText = `"${example}"`;
+
+            document.getElementById('vocab-modal').classList.add('active');
+            speakText(word);
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'vocab-modal') forceCloseModal();
+        }
+
+        function forceCloseModal() {
+            document.getElementById('vocab-modal').classList.remove('active');
+        }
+
+        function speakCurrentWord() {
+            if (activeWordToSpeak) speakText(activeWordToSpeak);
+        }
+
+        function speakCurrentExample() {
+            if (activeExampleToSpeak) speakText(activeExampleToSpeak);
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* 5. INTERACTIVE SELF-CHECKING */
+        function checkSet(className) {
+            const selects = document.querySelectorAll(`.${className}`);
+            selects.forEach(select => {
+                const expected = select.getAttribute('data-correct');
+                const feedback = select.parentElement.querySelector('.status-msg');
+                if (select.value === expected) {
+                    feedback.textContent = " ✔ Correct";
+                    feedback.style.color = "var(--success)";
+                } else {
+                    feedback.textContent = " ✖ Try again";
+                    feedback.style.color = "var(--danger)";
+                }
+            });
+        }
+
+        /* 6. TEACHER LIVE NOTE EDITING */
+        function toggleEdit(btn) {
+            const textDiv = btn.nextElementSibling;
+            const isEditing = textDiv.getAttribute('contenteditable') === 'true';
+            if (isEditing) {
+                textDiv.setAttribute('contenteditable', 'false');
+                btn.innerText = '✏️';
+            } else {
+                textDiv.setAttribute('contenteditable', 'true');
+                textDiv.focus();
+                btn.innerText = '💾';
+            }
+        }
+
+        updateSlide();
+    </script>
+</body>
+
+</html>
