@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUGLOT - Speak with Confidence | Grammar Course Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Course Portal Specific Layout */
+        .portal-container {
+            width: 100%;
+            max-width: 950px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 3px solid var(--border);
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+            color: white;
+            padding: 32px 28px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-banner h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .hero-banner p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 18px;
+        }
+
+        .course-meta {
+            display: inline-flex;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .curriculum-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .unit-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.1);
+        }
+
+        .unit-card.active-unit {
+            border-left: 8px solid var(--primary);
+            background: #ffffff;
+        }
+
+        .unit-card.review-card {
+            border-left: 8px solid var(--accent);
+            background: #fffbeb;
+        }
+
+        .unit-card.locked {
+            opacity: 0.65;
+            background: #f1f5f9;
+            cursor: not-allowed;
+        }
+
+        .unit-card.locked:hover {
+            transform: none;
+            border-color: var(--border);
+            box-shadow: none;
+        }
+
+        .unit-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .unit-icon {
+            font-size: 2.2rem;
+            width: 54px;
+            height: 54px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .unit-text h3 {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .unit-target {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .unit-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .badge-ready {
+            background: #dcfce7;
+            color: var(--success);
+        }
+
+        .badge-review {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .badge-locked {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .arrow-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="portal-container">
+        <!-- EDUGLOT Header -->
+        <div class="brand-bar">
+            <span>EDUGLOT</span>
+            <div class="brand-bar-right">
+                <span class="tagline">Speak with Confidence</span>
+            </div>
+        </div>
+
+        <!-- Hero Header -->
+        <div class="hero-banner">
+            <h1>English Grammar 1: Master Course</h1>
+            <p>Interactive Presentation, Dialogue & Practice Modules for Young Learners</p>
+            <div class="course-meta">
+                <span>📚 15 Core Units</span>
+                <span>⏱️ 60–90 Mins / Lesson</span>
+                <span>🎯 Level: Pre-A1 / A1</span>
+            </div>
+        </div>
+
+        <!-- Curriculum Units List -->
+        <div class="curriculum-body">
+
+            <!-- Starter Unit -->
+            <a href="starter.html" class="unit-card active-unit">
+                <div class="unit-info">
+                    <div class="unit-icon">👋</div>
+                    <div class="unit-text">
+                        <h3>Starter: Hello!</h3>
+                        <div class="unit-target">Question words: What, Who, How, How old</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-ready">Start</span>
+                    <span class="arrow-icon">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Unit 1 (Active) -->
+            <a href="unit1.html" class="unit-card active-unit">
+                <div class="unit-info">
+                    <div class="unit-icon">🎒</div>
+                    <div class="unit-text">
+                        <h3>Unit 1: School Things</h3>
+                        <div class="unit-target">What's this? & Indefinite articles (A / An)</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-ready">Ready</span>
+                    <span class="arrow-icon">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Unit 2 -->
+            <a href="unit2.html" class="unit-card active-unit">
+                <div class="unit-info">
+                    <div class="unit-icon">🧸</div>
+                    <div class="unit-text">
+                        <h3>Unit 2: My Toys</h3>
+                        <div class="unit-target">Possessives (My, Your) & Yes/No with 'be'</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-ready">Ready</span>
+                    <span class="arrow-icon">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Unit 3 -->
+            <a href="unit3.html" class="unit-card active-unit">
+                <div class="unit-info">
+                    <div class="unit-icon">🖐️</div>
+                    <div class="unit-text">
+                        <h3>Unit 3: My Body</h3>
+                        <div class="unit-target">Plural nouns (-s), Are, Demonstratives (This/These)</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-ready">Ready</span>
+                    <span class="arrow-icon">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Review 1 (Unlocked) -->
+            <a href="review1.html" class="unit-card review-card active-unit">
+                <div class="unit-info">
+                    <div class="unit-icon">⭐</div>
+                    <div class="unit-text">
+                        <h3>Review 1: Units 1–3 Checkpoint</h3>
+                        <div class="unit-target">Vocabulary & Sentence mastery test</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-review">Ready</span>
+                    <span class="arrow-icon">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Unit 4 -->
+            <a href="unit4.html" class="unit-card locked" onclick="event.preventDefault();">
+                <div class="unit-info">
+                    <div class="unit-icon">👨‍🚒</div>
+                    <div class="unit-text">
+                        <h3>Unit 4: Jobs</h3>
+                        <div class="unit-target">Pronouns (He/She) & Questions with is</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-locked">Upcoming</span>
+                </div>
+            </a>
+
+            <!-- Unit 5 -->
+            <a href="unit5.html" class="unit-card locked" onclick="event.preventDefault();">
+                <div class="unit-info">
+                    <div class="unit-icon">🛝</div>
+                    <div class="unit-text">
+                        <h3>Unit 5: At the Park</h3>
+                        <div class="unit-target">Where's...? & Prepositions of place (In, On, Under)</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-locked">Upcoming</span>
+                </div>
+            </a>
+
+            <!-- Unit 6 -->
+            <a href="unit6.html" class="unit-card locked" onclick="event.preventDefault();">
+                <div class="unit-info">
+                    <div class="unit-icon">👨‍👩‍👧‍👦</div>
+                    <div class="unit-text">
+                        <h3>Unit 6: My Family</h3>
+                        <div class="unit-target">I'm / You're & Possessive 's</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-locked">Upcoming</span>
+                </div>
+            </a>
+
+            <!-- Review 2 -->
+            <div class="unit-card review-card locked">
+                <div class="unit-info">
+                    <div class="unit-icon">⭐</div>
+                    <div class="unit-text">
+                        <h3>Review 2: Units 4–6 Checkpoint</h3>
+                        <div class="unit-target">Grammar & Pronoun reinforcement</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-review">Review</span>
+                </div>
+            </div>
+
+            <!-- Unit 7 -->
+            <a href="unit7.html" class="unit-card locked" onclick="event.preventDefault();">
+                <div class="unit-info">
+                    <div class="unit-icon">👕</div>
+                    <div class="unit-text">
+                        <h3>Unit 7: Clothes</h3>
+                        <div class="unit-target">Are they...? & Possessives (His / Her)</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-locked">Upcoming</span>
+                </div>
+            </a>
+
+            <!-- Units 8 to 15 Collapsed Group -->
+            <div class="unit-card locked">
+                <div class="unit-info">
+                    <div class="unit-icon">📖</div>
+                    <div class="unit-text">
+                        <h3>Units 8–15: Home, Food, Animals & Abilities</h3>
+                        <div class="unit-target">Have got, Like/Don't like, There is/are, Can/Can't</div>
+                    </div>
+                </div>
+                <div class="unit-status">
+                    <span class="badge badge-locked">Upcoming</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Protected Copyright Footer -->
+        <div class="footer-copyright">
+            &copy; 2026 EDUGLOT. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        /* Content Theft Protection Engine */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) { e.preventDefault(); return false; }
+            if (e.metaKey && e.altKey && e.keyCode === 73) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) { e.preventDefault(); return false; }
+        });
+        document.addEventListener('dragstart', e => e.preventDefault());
+    </script>
+</body>
+
+</html>
