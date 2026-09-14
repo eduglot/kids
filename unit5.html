@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUGLOT - Unit 5: At the Park</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="presentation-container">
+        <!-- Top Branding Bar with Vector Print Button -->
+        <div class="brand-bar">
+            <span>EDUGLOT</span>
+            <div class="brand-bar-right">
+                <span class="tagline">Speak with Confidence</span>
+                <button class="icon-btn-print" onclick="printAllSlides()" title="Print complete student worksheet">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide Header -->
+        <div class="slide-header">
+            <h2 id="slide-title">Stage 1: Warm-up & Objectives</h2>
+            <span class="slide-indicator" id="slide-indicator">Slide 1 / 7</span>
+        </div>
+
+        <!-- VOCAB MODAL (Audio, Definition & Example) -->
+        <div class="modal-overlay" id="vocab-modal" onclick="closeModal(event)">
+            <div class="modal-card">
+                <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+
+                <div class="modal-header-section">
+                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">🛝</span>
+                    <h3 id="modal-word" style="font-size: 1.8rem; color: var(--primary); font-weight: 800;">WORD</h3>
+                    <p id="modal-phonetic" style="color: #64748b; font-style: italic; font-size: 1rem;">/phonetic/</p>
+                    <button class="modal-audio-btn" onclick="speakCurrentWord()">🔊 Listen Word</button>
+                </div>
+
+                <div class="modal-details">
+                    <div class="detail-block">
+                        <div class="detail-title">Definition</div>
+                        <p class="detail-text" id="modal-def">Definition text goes here.</p>
+                    </div>
+
+                    <div class="detail-block example-box">
+                        <div class="detail-title">
+                            <span>Example Sentence</span>
+                            <button class="example-sound-btn" onclick="speakCurrentExample()">🔊 Read</button>
+                        </div>
+                        <p class="detail-text" id="modal-example">"Example sentence goes here."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: OBJECTIVES & WARM-UP (10 mins) -->
+        <div class="slide-content active">
+            <div class="objectives-card">
+                <h4>🎯 Lesson Objectives</h4>
+                <ul>
+                    <li>Identify 8 park and outdoor playground features: seesaw, slide, swing, net, tree, pool,
+                        armbands, and frisbee.</li>
+                    <li>Ask for object locations using: <em>"Where's...?" (= Where is...?)</em></li>
+                    <li>Accurately use prepositions of place: <strong>in</strong>, <strong>on</strong>, and
+                        <strong>under</strong>.
+                    </li>
+                    <li>Give complete location descriptions: <em>"It's on the slide." / "He's under the tree."</em></li>
+                </ul>
+            </div>
+
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Warm-up TPR activity! Place your pen <em>on</em> your book,
+                    <em>in</em> your pencil case, and <em>under</em> your desk. Ask: "Where is my pen?" Click cards
+                    below to review playground words!
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>🛝 Click Any Playground Feature to Hear & Learn!</h3>
+                <p>Listen carefully to the sound, read the example, and repeat out loud.</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="vocab-card"
+                    onclick="openModal('seesaw', '⚖️', '/ˈsiː.sɔː/', 'A long board balanced in the middle; when one end goes up, the other goes down.', 'Tim and Rosy play on the seesaw together.')">
+                    <span class="emoji-lg">⚖️</span>seesaw<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('slide', '🛝', '/slaɪd/', 'A smooth, sloped surface that children slide down for fun.', 'Billy slides down the tall red slide.')">
+                    <span class="emoji-lg">🛝</span>slide<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('swing', '🪑', '/swɪŋ/', 'A seat hanging from ropes or chains that moves back and forth.', 'Alison swings very high on the swing.')">
+                    <span class="emoji-lg">🪑</span>swing<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('net', '🥅', '/net/', 'A structure of rope or cord used for sports goals or catching balls.', 'The soccer ball is in the goal net.')">
+                    <span class="emoji-lg">🥅</span>net<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('tree', '🌳', '/triː/', 'A tall perennial woody plant with a trunk, branches, and green leaves.', 'A small bird sits on the big green tree.')">
+                    <span class="emoji-lg">🌳</span>tree<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('pool', '🏊', '/puːl/', 'A man-made basin filled with water for swimming.', 'Jump into the cool swimming pool on hot days.')">
+                    <span class="emoji-lg">🏊</span>pool<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('armbands', '🦺', '/ˈɑːm.bændz/', 'Inflatable plastic bands worn on arms to help children float in water.', 'Wear your yellow armbands in the deep pool.')">
+                    <span class="emoji-lg">🦺</span>armbands<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('frisbee', '🥏', '/ˈfrɪz.bi/', 'A plastic disc thrown back and forth through the air for fun.', 'Catch the bright red frisbee on the grass!')">
+                    <span class="emoji-lg">🥏</span>frisbee<span class="card-hint">🔊 Click me</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: PRESENTATION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Use hands to show physical gestures: Cupped hand inside fist for
+                    <em>in</em>, flat palm on top of hand for <em>on</em>, and hand placed beneath flat palm for
+                    <em>under</em>.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>Grammar Rules: Where's...? & Prepositions of Place</h3>
+                <p><strong>1. Asking Where:</strong><br>
+                    • <strong>Where's</strong> = <em>Where is</em> (asking for the position or location of an
+                    item/person).<br>
+                    • Examples: <em>Where's the ball? Where's Billy? Where's the kite?</em></p>
+                <br>
+                <p><strong>2. Prepositions of Place:</strong><br>
+                    • <strong>in</strong> (inside something): <em>It's in the pool. It's in the net. It's in the
+                        bag.</em><br>
+                    • <strong>on</strong> (touching the top surface): <em>It's on the slide. It's on the seesaw. It's on
+                        the swing.</em><br>
+                    • <strong>under</strong> (below or beneath): <em>It's under the tree. He's under the seesaw.</em>
+                </p>
+            </div>
+
+            <div class="vocab-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="vocab-card" style="border-color: #0284c7;">
+                    <span class="emoji-lg">📥</span>
+                    <strong>IN (Inside)</strong><br><br>
+                    • in the pool<br>• in the net<br>• in the box
+                </div>
+                <div class="vocab-card" style="border-color: #16a34a;">
+                    <span class="emoji-lg">🔝</span>
+                    <strong>ON (On top of)</strong><br><br>
+                    • on the slide<br>• on the swing<br>• on the seesaw
+                </div>
+                <div class="vocab-card" style="border-color: #f59e0b;">
+                    <span class="emoji-lg">🔽</span>
+                    <strong>UNDER (Beneath)</strong><br><br>
+                    • under the tree<br>• under the swing<br>• under the table
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: CONTROLLED PRACTICE 1 (8 Items: in / on / under) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Have students say the complete sentence aloud once they choose the
+                    preposition.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part A: Choose 'in', 'on', or 'under'
+                (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. 🛝 The ball is</span>
+                        <select class="quiz-select q-set-1" data-correct="on">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the slide.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 🏊 The duck is</span>
+                        <select class="quiz-select q-set-1" data-correct="in">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the pool.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. 🌳 The teddy is</span>
+                        <select class="quiz-select q-set-1" data-correct="under">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the tree.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 🥅 The soccer ball is</span>
+                        <select class="quiz-select q-set-1" data-correct="in">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the net.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. ⚖️ The cat is</span>
+                        <select class="quiz-select q-set-1" data-correct="on">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the seesaw.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🪑 The dog is</span>
+                        <select class="quiz-select q-set-1" data-correct="under">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the swing.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. 🎒 The pencil is</span>
+                        <select class="quiz-select q-set-1" data-correct="in">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the bag.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 🪑 Alison sits</span>
+                        <select class="quiz-select q-set-1" data-correct="on">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the swing.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-1')">Check Answers (Part A)</button>
+        </div>
+
+        <!-- SLIDE 4: CONTROLLED PRACTICE 2 (8 Items: Where's Question & Answers) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Watch word order for the question "Where's the..." and confirm
+                    students use "It's" or "He's / She's" accurately in the responses.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part B: Where's Questions & Location
+                Sentences (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. [ the ball / Where's / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Where's the ball?">
+                            <option value="">-- Order --</option>
+                            <option value="The ball where's?">The ball where's?</option>
+                            <option value="Where's the ball?">Where's the ball?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. ⚽ Where's the ball? (on / slide) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="It's on the slide.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="It's on the slide.">It's on the slide.</option>
+                            <option value="It's in the slide.">It's in the slide.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. [ kite / the / Where's / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Where's the kite?">
+                            <option value="">-- Order --</option>
+                            <option value="Where's the kite?">Where's the kite?</option>
+                            <option value="Where the kite is?">Where the kite is?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 🪁 Where's the kite? (in / tree) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="It's in the tree.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="It's in the tree.">It's in the tree.</option>
+                            <option value="It's under the tree.">It's under the tree.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. [ Billy / Where's / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Where's Billy?">
+                            <option value="">-- Order --</option>
+                            <option value="Where's Billy?">Where's Billy?</option>
+                            <option value="Billy where is?">Billy where is?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 👦 Where's Billy? (under / seesaw) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="He's under the seesaw.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="He's under the seesaw.">He's under the seesaw.</option>
+                            <option value="She's under the seesaw.">She's under the seesaw.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. [ the frisbee / Where's / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Where's the frisbee?">
+                            <option value="">-- Order --</option>
+                            <option value="Frisbee where's?">Frisbee where's?</option>
+                            <option value="Where's the frisbee?">Where's the frisbee?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 🥏 Where's the frisbee? (under / swing) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="It's under the swing.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="It's under the swing.">It's under the swing.</option>
+                            <option value="It's on the swing.">It's on the swing.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-2')">Check Answers (Part B)</button>
+        </div>
+
+        <!-- SLIDE 5: GUIDED PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Pair roleplay! Student A plays Tim searching for his lost toys, and
+                    Student B plays Alison giving park directions.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 10px; font-weight: bold; font-size: 1.1rem;">Conversation Practice</p>
+
+            <div class="dialogue-box">
+                <p><span class="speaker">Tim:</span> Oh no! Where's my new red frisbee, Alison?</p>
+                <p><span class="speaker">Alison:</span> Look over there! It's under the swing!</p>
+                <p><span class="speaker">Tim:</span> Whew, thank you! And where's my green soccer ball?</p>
+                <p><span class="speaker">Alison:</span> It's in the goal net. See?</p>
+                <p><span class="speaker">Tim:</span> Got it! Now, where's Billy? I can't see him.</p>
+                <p><span class="speaker">Alison:</span> Haha! Look at the playground. He's on the slide!</p>
+                <p><span class="speaker">Tim:</span> Awesome! Let's go play on the seesaw with him!</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: FREE PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Interactive Hide-and-Seek! A student places an eraser, pen, or toy
+                    somewhere on their desk (in a mug, on a book, under a keyboard) and asks: "Where's my...?" Their
+                    partner guesses the location.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--accent);">
+                <h3>🎯 Live Desk Hide-and-Seek Game!</h3>
+                <p>Hide an object on your desk and challenge your classmate to find it!</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🙈</span>
+                    <strong>Step 1</strong><br>Put an item in, on, or under something on your desk!
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">❓</span>
+                    <strong>Step 2</strong><br>Ask your classmate:<br><em>"Where's my...?"</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🗣️</span>
+                    <strong>Step 3</strong><br>Classmate spots it:<br><em>"It's on / in / under the..."</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONSOLIDATION & EXIT PASS (10 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Final check! Confirm each student answers all 8 items correctly before
+                    ending class.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--success);">
+                <h3>🎉 Exit Pass Checklist</h3>
+                <p>Complete all 8 questions before leaving class!</p>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. 🛝 The teddy is</span>
+                        <select class="quiz-select q-set-exit" data-correct="on">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the slide.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 🏊 The girl is</span>
+                        <select class="quiz-select q-set-exit" data-correct="in">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the pool.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. 🌳 The dog sleeps</span>
+                        <select class="quiz-select q-set-exit" data-correct="under">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the tree.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4.</span>
+                        <select class="quiz-select q-set-exit" data-correct="Where's">
+                            <option value="">--</option>
+                            <option value="What's">What's</option>
+                            <option value="Where's">Where's</option>
+                        </select>
+                        <span>the frisbee? - It's on the grass.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. 🥅 The ball is</span>
+                        <select class="quiz-select q-set-exit" data-correct="in">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the net.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. ⚖️ Two birds are</span>
+                        <select class="quiz-select q-set-exit" data-correct="on">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the seesaw.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. 🪑 The bag is</span>
+                        <select class="quiz-select q-set-exit" data-correct="under">
+                            <option value="">--</option>
+                            <option value="in">in</option>
+                            <option value="on">on</option>
+                            <option value="under">under</option>
+                        </select>
+                        <span>the swing.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 👦 Where's Tim? -</span>
+                        <select class="quiz-select q-set-exit" data-correct="He's">
+                            <option value="">--</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
+                            <option value="It's">It's</option>
+                        </select>
+                        <span>on the tree.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-exit')">Submit Exit Ticket</button>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <button class="btn" id="prev-btn" onclick="changeSlide(-1)">Previous</button>
+            <button class="btn" id="next-btn" onclick="changeSlide(1)">Next</button>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="footer-copyright">
+            &copy; 2026 EDUGLOT. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        /* 1. CONTENT THEFT PROTECTION */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) { e.preventDefault(); return false; }
+            if (e.metaKey && e.altKey && e.keyCode === 73) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) { e.preventDefault(); return false; }
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) { e.preventDefault(); return false; }
+        });
+        document.addEventListener('dragstart', e => e.preventDefault());
+
+        /* 2. SLIDE NAVIGATION */
+        const slides = document.querySelectorAll('.slide-content');
+        const titles = [
+            "Stage 1: Warm-up & Objectives",
+            "Stage 2: Presentation (Where's & Prepositions)",
+            "Stage 3: Practice Part A (in, on, under)",
+            "Stage 3: Practice Part B (Where's Questions)",
+            "Stage 4: Guided Production (Engoo Dialogue)",
+            "Stage 4: Free Production (Hide-and-Seek)",
+            "Stage 5: Consolidation (Exit Pass)"
+        ];
+        let currentSlide = 0;
+        let activeWordToSpeak = "";
+        let activeExampleToSpeak = "";
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('slide-title').innerText = titles[currentSlide];
+            document.getElementById('slide-indicator').innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === slides.length - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            updateSlide();
+        }
+
+        /* 3. PRINT ALL PAGES ENGINE */
+        function printAllSlides() {
+            slides.forEach(slide => slide.style.display = 'block');
+            window.print();
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        /* 4. MODAL & AUDIO PRONUNCIATION ENGINE */
+        function openModal(word, emoji, phonetic, definition, example) {
+            activeWordToSpeak = word;
+            activeExampleToSpeak = example;
+
+            document.getElementById('modal-emoji').innerText = emoji;
+            document.getElementById('modal-word').innerText = word.toUpperCase();
+            document.getElementById('modal-phonetic').innerText = phonetic;
+            document.getElementById('modal-def').innerText = definition;
+            document.getElementById('modal-example').innerText = `"${example}"`;
+
+            document.getElementById('vocab-modal').classList.add('active');
+            speakText(word);
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'vocab-modal') forceCloseModal();
+        }
+
+        function forceCloseModal() {
+            document.getElementById('vocab-modal').classList.remove('active');
+        }
+
+        function speakCurrentWord() {
+            if (activeWordToSpeak) speakText(activeWordToSpeak);
+        }
+
+        function speakCurrentExample() {
+            if (activeExampleToSpeak) speakText(activeExampleToSpeak);
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* 5. INTERACTIVE SELF-CHECKING */
+        function checkSet(className) {
+            const selects = document.querySelectorAll(`.${className}`);
+            selects.forEach(select => {
+                const expected = select.getAttribute('data-correct');
+                const feedback = select.parentElement.querySelector('.status-msg');
+                if (select.value === expected) {
+                    feedback.textContent = " ✔ Correct";
+                    feedback.style.color = "var(--success)";
+                } else {
+                    feedback.textContent = " ✖ Try again";
+                    feedback.style.color = "var(--danger)";
+                }
+            });
+        }
+
+        /* 6. TEACHER LIVE NOTE EDITING */
+        function toggleEdit(btn) {
+            const textDiv = btn.nextElementSibling;
+            const isEditing = textDiv.getAttribute('contenteditable') === 'true';
+            if (isEditing) {
+                textDiv.setAttribute('contenteditable', 'false');
+                btn.innerText = '✏️';
+            } else {
+                textDiv.setAttribute('contenteditable', 'true');
+                textDiv.focus();
+                btn.innerText = '💾';
+            }
+        }
+
+        updateSlide();
+    </script>
+</body>
+
+</html>
