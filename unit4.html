@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EDUGLOT - Unit 2: My Toys</title>
+    <title>EDUGLOT - Unit 4: Jobs</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -37,7 +37,7 @@
                 <button class="modal-close" onclick="forceCloseModal()">&times;</button>
 
                 <div class="modal-header-section">
-                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">🧸</span>
+                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">👨‍🚒</span>
                     <h3 id="modal-word" style="font-size: 1.8rem; color: var(--primary); font-weight: 800;">WORD</h3>
                     <p id="modal-phonetic" style="color: #64748b; font-style: italic; font-size: 1rem;">/phonetic/</p>
                     <button class="modal-audio-btn" onclick="speakCurrentWord()">🔊 Listen Word</button>
@@ -65,10 +65,13 @@
             <div class="objectives-card">
                 <h4>🎯 Lesson Objectives</h4>
                 <ul>
-                    <li>Identify 8 favorite toys: ball, teddy, doll, car, kite, train, bike, and puzzle.</li>
-                    <li>State toy ownership using possessive adjectives: <strong>my</strong> and <strong>your</strong>.
+                    <li>Identify 8 community professions: teacher, pupil, doctor, nurse, firefighter, pilot, police
+                        officer, and farmer.</li>
+                    <li>Accurately apply third-person singular pronouns: <strong>he</strong> (boy/man) and
+                        <strong>she</strong> (girl/woman).
                     </li>
-                    <li>Form and answer yes/no questions: <em>"Is this your...?" &rarr; "Yes, it is. / No, it
+                    <li>Combine pronouns with articles: <em>He's a / She's an...</em></li>
+                    <li>Ask and answer yes/no questions: <em>"Is he / she a...?" &rarr; "Yes, he/she is. / No, he/she
                             isn't."</em></li>
                 </ul>
             </div>
@@ -76,48 +79,48 @@
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Warm-up game! Ask students: "What is your absolute favorite toy at
-                    home?" Click on each card below and have the children echo the pronunciation.
+                    <strong>Teacher Tip:</strong> Warm-up mime game! Pretend to put out a fire, steer an airplane, or
+                    write on a chalkboard. Ask students: "Who am I?" Click each card to drill pronunciation!
                 </div>
             </div>
 
             <div class="rule-box">
-                <h3>🧸 Click Any Card to Hear & Learn!</h3>
+                <h3>👨‍🚒 Click Any Job to Hear & Learn!</h3>
                 <p>Listen carefully to the sound, read the example, and repeat out loud.</p>
             </div>
 
             <div class="vocab-grid">
                 <div class="vocab-card"
-                    onclick="openModal('ball', '⚽', '/bɔːl/', 'A round object used in games for throwing, kicking, or bouncing.', 'Kick the soccer ball into the goal!')">
-                    <span class="emoji-lg">⚽</span>ball<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('teacher', '👩‍🏫', '/ˈtiː.tʃər/', 'A person who helps students learn new things at school.', 'She is a friendly English teacher.')">
+                    <span class="emoji-lg">👩‍🏫</span>teacher<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('teddy', '🧸', '/ˈted.i/', 'A soft toy bear stuffed with fluffy material for hugging.', 'I hug my soft brown teddy when I go to sleep.')">
-                    <span class="emoji-lg">🧸</span>teddy<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('pupil', '🎒', '/ˈpjuː.pəl/', 'A young student who goes to school to study and learn.', 'Jamie is a pupil in primary school.')">
+                    <span class="emoji-lg">🎒</span>pupil<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('doll', '🪆', '/dɒl/', 'A toy that looks like a small person or baby.', 'Alison brushes the long hair of her doll.')">
-                    <span class="emoji-lg">🪆</span>doll<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('doctor', '👨‍⚕️', '/ˈdɒk.tər/', 'A person with medical training who makes sick people feel better.', 'He is a helpful hospital doctor.')">
+                    <span class="emoji-lg">👨‍⚕️</span>doctor<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('car', '🚗', '/kɑːr/', 'A small toy vehicle with four spinning wheels.', 'This red toy car runs very fast on the floor.')">
-                    <span class="emoji-lg">🚗</span>car<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('nurse', '👩‍⚕️', '/nɜːs/', 'A person trained to take care of patients in a hospital or clinic.', 'She is a kind nurse with a warm smile.')">
+                    <span class="emoji-lg">👩‍⚕️</span>nurse<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('kite', '🪁', '/kaɪt/', 'A light toy with strings that flies high in the wind.', 'We fly a bright diamond kite in the park.')">
-                    <span class="emoji-lg">🪁</span>kite<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('firefighter', '👨‍🚒', '/ˈfaɪəˌfaɪ.tər/', 'A brave person whose job is to stop big fires and save people.', 'He is a firefighter with a big red truck.')">
+                    <span class="emoji-lg">👨‍🚒</span>firefighter<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('train', '🚂', '/treɪn/', 'A line of connected toy wagons running along toy tracks.', 'The toy train goes choo-choo around the room.')">
-                    <span class="emoji-lg">🚂</span>train<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('pilot', '👨‍✈️', '/ˈpaɪ.lət/', 'A person who flies airplanes and helicopters through the sky.', 'He is a pilot flying across the clouds.')">
+                    <span class="emoji-lg">👨‍✈️</span>pilot<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('bike', '🚲', '/baɪk/', 'A two-wheeled vehicle that you ride by pushing pedals.', 'Jamie rides his cool blue bike outside.')">
-                    <span class="emoji-lg">🚲</span>bike<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('police officer', '👮', '/pəˈliːs ˌɒf.ɪ.sər/', 'A person whose job is to keep people safe and uphold the law.', 'She is a brave police officer in town.')">
+                    <span class="emoji-lg">👮</span>police officer<span class="card-hint">🔊 Click me</span>
                 </div>
                 <div class="vocab-card"
-                    onclick="openModal('puzzle', '🧩', '/ˈpʌz.əl/', 'A game where you fit different shaped pieces together.', 'Let us finish this 20-piece animal puzzle together.')">
-                    <span class="emoji-lg">🧩</span>puzzle<span class="card-hint">🔊 Click me</span>
+                    onclick="openModal('farmer', '👨‍🌾', '/ˈfɑː.mər/', 'A person who grows crops and takes care of farm animals.', 'He is a farmer with green fields and cows.')">
+                    <span class="emoji-lg">👨‍🌾</span>farmer<span class="card-hint">🔊 Click me</span>
                 </div>
             </div>
         </div>
@@ -127,152 +130,154 @@
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Gesture clearly! Point towards yourself for "my" and point directly to
-                    the camera towards the student for "your". Contrast the statement vs question order.
+                    <strong>Teacher Tip:</strong> Contrast he and she with physical cues. Remind students that
+                    contractions (He's = He is, She's = She is, isn't = is not) are common in everyday speech.
                 </div>
             </div>
 
             <div class="rule-box">
-                <h3>Grammar Rules: Ownership & Yes/No Questions</h3>
-                <p><strong>1. Possessive Adjectives:</strong><br>
-                    • <strong>I &rarr; my</strong> (belongs to me): <em>This is my ball. This is my doll.</em><br>
-                    • <strong>You &rarr; your</strong> (belongs to you): <em>This is your teddy. This is your car.</em>
-                </p>
+                <h3>Grammar Rules: Pronouns (He / She) & Questions with Is</h3>
+                <p><strong>1. Pronouns & Sentences:</strong><br>
+                    • <strong>He</strong> is for a boy or man: <em>He's a doctor. (= He is a doctor.)</em><br>
+                    • <strong>She</strong> is for a girl or woman: <em>She's a nurse. (= She is a nurse.)</em><br>
+                    • Always use <strong>a / an</strong> before singular jobs: <em>He's an astronaut. She's a
+                        teacher.</em></p>
                 <br>
                 <p><strong>2. Question & Short Answers:</strong><br>
-                    • Statement: <em>This is your teddy.</em> &rarr; Question: <em><strong>Is this</strong> your
-                        teddy?</em><br>
-                    • Positive: <strong>Yes, it is.</strong><br>
-                    • Negative: <strong>No, it isn't.</strong> <em>(isn't = is not)</em></p>
+                    • Statement: <em>She's a teacher.</em> &rarr; Question: <em><strong>Is she</strong> a
+                        teacher?</em><br>
+                    • Statement: <em>He's a pilot.</em> &rarr; Question: <em><strong>Is he</strong> a pilot?</em><br>
+                    • Positive: <strong>Yes, he is. / Yes, she is.</strong><br>
+                    • Negative: <strong>No, he isn't. / No, she isn't.</strong></p>
             </div>
 
             <div class="vocab-grid">
                 <div class="vocab-card" style="border-color: #4f46e5;">
-                    <span class="emoji-lg">🙋</span>
-                    <strong>MY (Belongs to Me)</strong><br><br>
-                    • This is my train.<br>• This is my puzzle.<br>• This is my bike.
+                    <span class="emoji-lg">👦</span>
+                    <strong>HE'S (Boy / Man)</strong><br><br>
+                    • He's a pilot.<br>• He's a doctor.<br>• He's a firefighter.
                 </div>
-                <div class="vocab-card" style="border-color: #f59e0b;">
-                    <span class="emoji-lg">👉</span>
-                    <strong>YOUR (Belongs to You)</strong><br><br>
-                    • This is your teddy.<br>• This is your doll.<br>• This is your car.
+                <div class="vocab-card" style="border-color: #ec4899;">
+                    <span class="emoji-lg">👧</span>
+                    <strong>SHE'S (Girl / Woman)</strong><br><br>
+                    • She's a teacher.<br>• She's a nurse.<br>• She's a police officer.
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 3: CONTROLLED PRACTICE 1 (8 Items: My vs Your) -->
+        <!-- SLIDE 3: CONTROLLED PRACTICE 1 (8 Items: He's vs She's) -->
         <div class="slide-content">
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Have students say the complete sentence aloud once they select the
-                    possessive adjective.
+                    <strong>Teacher Tip:</strong> Check if students can distinguish male from female indicators in the
+                    prompts, and make sure they enunciate the contracted "'s".
                 </div>
             </div>
 
-            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part A: Complete with 'my' or 'your'
-                (8 Questions)</p>
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part A: Complete with 'He's' or
+                'She's' (8 Questions)</p>
 
             <div class="exercise-grid">
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>1. ⚽ (I) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="my">
+                        <span>1. 👨‍⚕️ (Man)</span>
+                        <select class="quiz-select q-set-1" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>ball.</span><span class="status-msg"></span>
+                        <span>a doctor.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>2. 🧸 (You) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="your">
+                        <span>2. 👩‍🏫 (Woman)</span>
+                        <select class="quiz-select q-set-1" data-correct="She's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>teddy.</span><span class="status-msg"></span>
+                        <span>a teacher.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>3. 🪆 (I) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="my">
+                        <span>3. 👨‍✈️ (Man)</span>
+                        <select class="quiz-select q-set-1" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>doll.</span><span class="status-msg"></span>
+                        <span>a pilot.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>4. 🚗 (You) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="your">
+                        <span>4. 👩‍⚕️ (Woman)</span>
+                        <select class="quiz-select q-set-1" data-correct="She's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>car.</span><span class="status-msg"></span>
+                        <span>a nurse.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>5. 🪁 (I) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="my">
+                        <span>5. 👨‍🌾 (Man)</span>
+                        <select class="quiz-select q-set-1" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>kite.</span><span class="status-msg"></span>
+                        <span>a farmer.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>6. 🚂 (You) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="your">
+                        <span>6. 🎒 (Girl)</span>
+                        <select class="quiz-select q-set-1" data-correct="She's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>train.</span><span class="status-msg"></span>
+                        <span>a pupil.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>7. 🚲 (I) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="my">
+                        <span>7. 👨‍🚒 (Man)</span>
+                        <select class="quiz-select q-set-1" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>bike.</span><span class="status-msg"></span>
+                        <span>a firefighter.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>8. 🧩 (You) This is</span>
-                        <select class="quiz-select q-set-1" data-correct="your">
+                        <span>8. 👮 (Woman)</span>
+                        <select class="quiz-select q-set-1" data-correct="She's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>puzzle.</span><span class="status-msg"></span>
+                        <span>a police officer.</span><span class="status-msg"></span>
                     </div>
                 </div>
             </div>
             <button class="btn" onclick="checkSet('q-set-1')">Check Answers (Part A)</button>
         </div>
 
-        <!-- SLIDE 4: CONTROLLED PRACTICE 2 (8 Items: Questions & Answers) -->
+        <!-- SLIDE 4: CONTROLLED PRACTICE 2 (8 Items: Questions & Short Answers) -->
         <div class="slide-content">
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Focus on the word inversion (This is &rarr; Is this). Check their
-                    accuracy on short answers.
+                    <strong>Teacher Tip:</strong> Focus on pronoun agreement in the short answers: "Is he...?" requires
+                    "he" in the answer, not "she" or "it".
                 </div>
             </div>
 
@@ -282,88 +287,88 @@
             <div class="exercise-grid">
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>1. [ this / Is / your ball / ? ]</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Is this your ball?">
+                        <span>1. [ a pilot / Is / he / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is he a pilot?">
                             <option value="">-- Order --</option>
-                            <option value="This is your ball?">This is your ball?</option>
-                            <option value="Is this your ball?">Is this your ball?</option>
+                            <option value="He is a pilot?">He is a pilot?</option>
+                            <option value="Is he a pilot?">Is he a pilot?</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>2. ⚽ Is this your ball? (Yes) &rarr;</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Yes, it is.">
+                        <span>2. 👨‍✈️ Is he a pilot? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, he is.">
                             <option value="">-- Choose Answer --</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                            <option value="Yes, she is.">Yes, she is.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>3. [ my / Is / doll / this / ? ]</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Is this my doll?">
+                        <span>3. [ she / a teacher / Is / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is she a teacher?">
                             <option value="">-- Order --</option>
-                            <option value="Is this my doll?">Is this my doll?</option>
-                            <option value="My doll is this?">My doll is this?</option>
+                            <option value="Is she a teacher?">Is she a teacher?</option>
+                            <option value="She is a teacher?">She is a teacher?</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>4. 🚗 Is this your car? (No) &rarr;</span><br>
-                        <select class="quiz-select q-set-2" data-correct="No, it isn't.">
+                        <span>4. 👩‍⚕️ Is she a doctor? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, she isn't.">
                             <option value="">-- Choose Answer --</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>5. [ your / Is / kite / this / ? ]</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Is this your kite?">
+                        <span>5. [ he / a farmer / Is / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is he a farmer?">
                             <option value="">-- Order --</option>
-                            <option value="Your kite is this?">Your kite is this?</option>
-                            <option value="Is this your kite?">Is this your kite?</option>
+                            <option value="Is he a farmer?">Is he a farmer?</option>
+                            <option value="A farmer is he?">A farmer is he?</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>6. 🧸 Is this your teddy? (Yes) &rarr;</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Yes, it is.">
+                        <span>6. 👨‍🚒 Is he a firefighter? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, he is.">
                             <option value="">-- Choose Answer --</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>7. [ train / Is / this / my / ? ]</span><br>
-                        <select class="quiz-select q-set-2" data-correct="Is this my train?">
+                        <span>7. [ a pupil / she / Is / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is she a pupil?">
                             <option value="">-- Order --</option>
-                            <option value="Is this my train?">Is this my train?</option>
-                            <option value="This train is my?">This train is my?</option>
+                            <option value="Is she a pupil?">Is she a pupil?</option>
+                            <option value="Pupil is she?">Pupil is she?</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>8. 🚲 Is this your bike? (No) &rarr;</span><br>
-                        <select class="quiz-select q-set-2" data-correct="No, it isn't.">
+                        <span>8. 👮 Is he a teacher? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, he isn't.">
                             <option value="">-- Choose Answer --</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
@@ -377,21 +382,22 @@
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Roleplay time! Have Student A read Tim and Student B read Jamie.
-                    Switch roles and run the conversation again.
+                    <strong>Teacher Tip:</strong> Photo album roleplay! Have Student A read Tim and Student B read Rosy.
+                    Switch roles so each gets practice asking "Is he/she...?"
                 </div>
             </div>
 
             <p style="margin-bottom: 10px; font-weight: bold; font-size: 1.1rem;">Conversation Practice</p>
 
             <div class="dialogue-box">
-                <p><span class="speaker">Tim:</span> Hi Jamie! Is this your toy box?</p>
-                <p><span class="speaker">Jamie:</span> Yes, it is! Come and look at my toys.</p>
-                <p><span class="speaker">Tim:</span> Cool! Is this your red car?</p>
-                <p><span class="speaker">Jamie:</span> No, it isn't. That is my brother Billy's car. This blue train is
-                    my toy!</p>
-                <p><span class="speaker">Tim:</span> Wow! And is this your green kite?</p>
-                <p><span class="speaker">Jamie:</span> Yes, it is! Let's go fly it in the garden!</p>
+                <p><span class="speaker">Tim:</span> Look at this photo, Rosy! Who is this man?</p>
+                <p><span class="speaker">Rosy:</span> That is my uncle David. Can you guess his job?</p>
+                <p><span class="speaker">Tim:</span> Hmm... Is he a firefighter?</p>
+                <p><span class="speaker">Rosy:</span> No, he isn't! Look at his tall hat and airplane badge.</p>
+                <p><span class="speaker">Tim:</span> Oh! Is he a pilot?</p>
+                <p><span class="speaker">Rosy:</span> Yes, he is! He flies big planes. And look at this woman here.</p>
+                <p><span class="speaker">Tim:</span> Is she a doctor?</p>
+                <p><span class="speaker">Rosy:</span> No, she isn't. She's a nurse! She works at the hospital.</p>
             </div>
         </div>
 
@@ -400,28 +406,28 @@
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Toy Mystery Guessing Game! Student holds an item or toy close to
-                    camera or hides it partly behind paper, asking "Is this your / my...?"
+                    <strong>Teacher Tip:</strong> Job Charades! One student acts out a profession (without speaking),
+                    and their classmate guesses using: "Is he/she a...?"
                 </div>
             </div>
 
             <div class="rule-box" style="border-left-color: var(--accent);">
-                <h3>🎯 Toy Guessing Game!</h3>
-                <p>Pick a toy or classroom item and play with your classmate!</p>
+                <h3>🎯 Community Hero Mystery Game!</h3>
+                <p>Act out a job on camera and let your classmate guess who you are!</p>
             </div>
 
             <div class="vocab-grid">
                 <div class="exercise-card" style="text-align: center;">
-                    <span class="emoji-lg">🕵️</span>
-                    <strong>Step 1</strong><br>Show part of your toy on camera!
+                    <span class="emoji-lg">🎭</span>
+                    <strong>Step 1</strong><br>Act out a job without making sounds!
                 </div>
                 <div class="exercise-card" style="text-align: center;">
                     <span class="emoji-lg">❓</span>
-                    <strong>Step 2</strong><br>Partner asks:<br><em>"Is this your...?"</em>
+                    <strong>Step 2</strong><br>Partner asks:<br><em>"Is he / she a...?"</em>
                 </div>
                 <div class="exercise-card" style="text-align: center;">
                     <span class="emoji-lg">🗣️</span>
-                    <strong>Step 3</strong><br>Answer truthfully:<br><em>"Yes, it is!" / "No, it isn't!"</em>
+                    <strong>Step 3</strong><br>Answer clearly:<br><em>"Yes, he/she is!" / "No, he/she isn't!"</em>
                 </div>
             </div>
         </div>
@@ -431,8 +437,8 @@
             <div class="teacher-cue">
                 <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
                 <div class="teacher-notes-text">
-                    <strong>Teacher Tip:</strong> Final check before logging off! Make sure every student gets 8/8 on
-                    their exit pass.
+                    <strong>Teacher Tip:</strong> Final check! Confirm every student answers all 8 items correctly
+                    before finishing class.
                 </div>
             </div>
 
@@ -444,88 +450,88 @@
             <div class="exercise-grid">
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>1. (I) This is</span>
-                        <select class="quiz-select q-set-exit" data-correct="my">
+                        <span>1. 👨‍⚕️ (Man)</span>
+                        <select class="quiz-select q-set-exit" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>teddy bear. 🧸</span><span class="status-msg"></span>
+                        <span>a doctor.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>2. (You) Is this</span>
-                        <select class="quiz-select q-set-exit" data-correct="your">
+                        <span>2. 👩‍🏫 (Woman)</span>
+                        <select class="quiz-select q-set-exit" data-correct="She's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>bike? 🚲</span><span class="status-msg"></span>
+                        <span>a teacher.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>3. 🚗 Is this your car? (Yes) &rarr;</span>
-                        <select class="quiz-select q-set-exit" data-correct="Yes, it is.">
+                        <span>3. 👨‍✈️ Is he a pilot? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, he is.">
                             <option value="">--</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
-                        </select>
-                        <span class="status-msg"></span>
-                    </div>
-                </div>
-                <div class="exercise-card">
-                    <div class="quiz-row">
-                        <span>4. 🪁 Is this your kite? (No) &rarr;</span>
-                        <select class="quiz-select q-set-exit" data-correct="No, it isn't.">
-                            <option value="">--</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>5. (You) This is</span>
-                        <select class="quiz-select q-set-exit" data-correct="your">
+                        <span>4. 👩‍⚕️ Is she a firefighter? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, she isn't.">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
-                        </select>
-                        <span>fast train. 🚂</span><span class="status-msg"></span>
-                    </div>
-                </div>
-                <div class="exercise-card">
-                    <div class="quiz-row">
-                        <span>6. 🪆 Is this your doll? (Yes) &rarr;</span>
-                        <select class="quiz-select q-set-exit" data-correct="Yes, it is.">
-                            <option value="">--</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="Yes, she is.">Yes, she is.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>7. (I) This is</span>
-                        <select class="quiz-select q-set-exit" data-correct="my">
+                        <span>5. 👨‍🌾 (Man)</span>
+                        <select class="quiz-select q-set-exit" data-correct="He's">
                             <option value="">--</option>
-                            <option value="my">my</option>
-                            <option value="your">your</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
                         </select>
-                        <span>fun puzzle. 🧩</span><span class="status-msg"></span>
+                        <span>a farmer.</span><span class="status-msg"></span>
                     </div>
                 </div>
                 <div class="exercise-card">
                     <div class="quiz-row">
-                        <span>8. ⚽ Is this your ball? (No) &rarr;</span>
-                        <select class="quiz-select q-set-exit" data-correct="No, it isn't.">
+                        <span>6. 🎒 (Girl)</span>
+                        <select class="quiz-select q-set-exit" data-correct="She's">
                             <option value="">--</option>
-                            <option value="Yes, it is.">Yes, it is.</option>
-                            <option value="No, it isn't.">No, it isn't.</option>
+                            <option value="He's">He's</option>
+                            <option value="She's">She's</option>
+                        </select>
+                        <span>a pupil.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. 👨‍🚒 Is he a teacher? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, he isn't.">
+                            <option value="">--</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 👮 Is she a police officer? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, she is.">
+                            <option value="">--</option>
+                            <option value="Yes, she is.">Yes, she is.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
                         </select>
                         <span class="status-msg"></span>
                     </div>
@@ -562,11 +568,11 @@
         const slides = document.querySelectorAll('.slide-content');
         const titles = [
             "Stage 1: Warm-up & Objectives",
-            "Stage 2: Presentation (Rules & Sounds)",
-            "Stage 3: Practice Part A (My vs Your)",
+            "Stage 2: Presentation (He & She / Questions)",
+            "Stage 3: Practice Part A (He's vs She's)",
             "Stage 3: Practice Part B (Questions & Answers)",
             "Stage 4: Guided Production (Engoo Dialogue)",
-            "Stage 4: Free Production (Toy Mystery Game)",
+            "Stage 4: Free Production (Community Hero Game)",
             "Stage 5: Consolidation (Exit Pass)"
         ];
         let currentSlide = 0;
