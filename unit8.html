@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUGLOT - Unit 8: My Home</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="presentation-container">
+        <!-- Top Branding Bar with Vector Print Button -->
+        <div class="brand-bar">
+            <span>EDUGLOT</span>
+            <div class="brand-bar-right">
+                <span class="tagline">Speak with Confidence</span>
+                <button class="icon-btn-print" onclick="printAllSlides()" title="Print complete student worksheet">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide Header -->
+        <div class="slide-header">
+            <h2 id="slide-title">Stage 1: Warm-up & Objectives</h2>
+            <span class="slide-indicator" id="slide-indicator">Slide 1 / 7</span>
+        </div>
+
+        <!-- VOCAB MODAL (Audio, Definition & Example) -->
+        <div class="modal-overlay" id="vocab-modal" onclick="closeModal(event)">
+            <div class="modal-card">
+                <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+
+                <div class="modal-header-section">
+                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">🏠</span>
+                    <h3 id="modal-word" style="font-size: 1.8rem; color: var(--primary); font-weight: 800;">WORD</h3>
+                    <p id="modal-phonetic" style="color: #64748b; font-style: italic; font-size: 1rem;">/phonetic/</p>
+                    <button class="modal-audio-btn" onclick="speakCurrentWord()">🔊 Listen Word</button>
+                </div>
+
+                <div class="modal-details">
+                    <div class="detail-block">
+                        <div class="detail-title">Definition</div>
+                        <p class="detail-text" id="modal-def">Definition text goes here.</p>
+                    </div>
+
+                    <div class="detail-block example-box">
+                        <div class="detail-title">
+                            <span>Example Sentence</span>
+                            <button class="example-sound-btn" onclick="speakCurrentExample()">🔊 Read</button>
+                        </div>
+                        <p class="detail-text" id="modal-example">"Example sentence goes here."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: OBJECTIVES & WARM-UP (10 mins) -->
+        <div class="slide-content active">
+            <div class="objectives-card">
+                <h4>🎯 Lesson Objectives</h4>
+                <ul>
+                    <li>Identify parts of a house: bedroom, bathroom, living room, kitchen, dining room, and garden.
+                    </li>
+                    <li>Learn adverbs of location: <strong>upstairs</strong> and <strong>downstairs</strong>.</li>
+                    <li>Ask where people are using plural questions: <em>"Where are...?"</em></li>
+                    <li>Ask and answer Yes/No questions about rooms: <em>"Is he in the...? Are they in the...?"</em>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Warm-up! Ask students: "Where do you sleep? Where do you eat?" Click
+                    the cards below to drill the pronunciation. Make sure to clearly explain the difference between
+                    'upstairs' (upper floors) and 'downstairs' (lower floors).
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>🏠 Click Any Room to Hear & Learn!</h3>
+                <p>Listen carefully to the sound, read the example, and repeat out loud.</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="vocab-card"
+                    onclick="openModal('bedroom', '🛏️', '/ˈbed.ruːm/', 'A room in a house where you sleep and keep your clothes.', 'I sleep in my cozy bedroom.')">
+                    <span class="emoji-lg">🛏️</span>bedroom<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('bathroom', '🛁', '/ˈbɑːθ.ruːm/', 'A room with a bath or shower and a toilet.', 'She washes her face in the bathroom.')">
+                    <span class="emoji-lg">🛁</span>bathroom<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('living room', '🛋️', '/ˈlɪv.ɪŋ ˌruːm/', 'A room where people sit, relax, and watch television together.', 'We watch TV in the living room.')">
+                    <span class="emoji-lg">🛋️</span>living room<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('kitchen', '🍳', '/ˈkɪtʃ.ən/', 'A room where food is kept, prepared, and cooked.', 'Dad cooks dinner in the kitchen.')">
+                    <span class="emoji-lg">🍳</span>kitchen<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('dining room', '🍽️', '/ˈdaɪ.nɪŋ ˌruːm/', 'A room in a house where people eat their meals.', 'We eat breakfast in the dining room.')">
+                    <span class="emoji-lg">🍽️</span>dining room<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('garden', '🌷', '/ˈɡɑː.dən/', 'An outdoor piece of land next to a house, with grass and flowers.', 'They play with a ball in the garden.')">
+                    <span class="emoji-lg">🌷</span>garden<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('upstairs', '⬆️', '/ʌpˈsteəz/', 'Towards or on an upper floor of a building.', 'My bedroom is upstairs.')">
+                    <span class="emoji-lg">⬆️</span>upstairs<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('downstairs', '⬇️', '/ˌdaʊnˈsteəz/', 'Towards or on a lower floor of a building.', 'The kitchen is downstairs.')">
+                    <span class="emoji-lg">⬇️</span>downstairs<span class="card-hint">🔊 Click me</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: PRESENTATION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Contrast Unit 5's "Where is...?" with this unit's "Where are...?".
+                    Point upward when saying "upstairs" and point downward when saying "downstairs" to cement the
+                    meaning physically.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>Grammar Rules: Where are & In the...</h3>
+                <p><strong>1. Asking Where (Plural):</strong><br>
+                    • <strong>Where are...?</strong> (Asking about 2 or more people/things).<br>
+                    • Examples: <em>Where are Mum and Dad? Where are they?</em></p>
+                <br>
+                <p><strong>2. Upstairs & Downstairs:</strong><br>
+                    • Adverbs of place do not need "in". Just say: <em>He's upstairs. They're downstairs.</em></p>
+                <br>
+                <p><strong>3. Yes/No Questions (Is he/she...? Are they...?):</strong><br>
+                    • <em><strong>Is he in</strong> the bedroom?</em> &rarr; <strong>Yes, he is. / No, he
+                        isn't.</strong><br>
+                    • <em><strong>Is she in</strong> the kitchen?</em> &rarr; <strong>Yes, she is. / No, she
+                        isn't.</strong><br>
+                    • <em><strong>Are they in</strong> the living room?</em> &rarr; <strong>Yes, they are. / No, they
+                        aren't.</strong></p>
+            </div>
+
+            <div class="vocab-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="vocab-card" style="border-color: #4f46e5;">
+                    <span class="emoji-lg">❓</span>
+                    <strong>WHERE ARE...?</strong><br><br>
+                    • Where are they?<br>• They're in the garden.<br>• They're downstairs.
+                </div>
+                <div class="vocab-card" style="border-color: #ec4899;">
+                    <span class="emoji-lg">🪜</span>
+                    <strong>UPSTAIRS / DOWNSTAIRS</strong><br><br>
+                    • She is upstairs.<br>• He is downstairs.<br><em>(No "in" needed!)</em>
+                </div>
+                <div class="vocab-card" style="border-color: #f59e0b;">
+                    <span class="emoji-lg">✅</span>
+                    <strong>YES/NO QUESTIONS</strong><br><br>
+                    • Is he in the kitchen?<br>• Are they in the garden?<br>&rarr; Yes, they are.
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: CONTROLLED PRACTICE 1 (8 Items: Where are / Upstairs / Downstairs) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Ensure students do not say "in the upstairs" or "in downstairs".
+                    Remind them that upstairs/downstairs act alone.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part A: Where are they? (8 Questions)
+            </p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1.</span>
+                        <select class="quiz-select q-set-1" data-correct="Where's">
+                            <option value="">--</option>
+                            <option value="Where's">Where's</option>
+                            <option value="Where are">Where are</option>
+                        </select>
+                        <span>Billy? (1 person)</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2.</span>
+                        <select class="quiz-select q-set-1" data-correct="Where are">
+                            <option value="">--</option>
+                            <option value="Where's">Where's</option>
+                            <option value="Where are">Where are</option>
+                        </select>
+                        <span>Mum and Dad? (2 people)</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. Billy is</span>
+                        <select class="quiz-select q-set-1" data-correct="in the">
+                            <option value="">--</option>
+                            <option value="in the">in the</option>
+                            <option value="on the">on the</option>
+                        </select>
+                        <span>bedroom. 🛏️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. My bedroom is</span>
+                        <select class="quiz-select q-set-1" data-correct="upstairs">
+                            <option value="">--</option>
+                            <option value="upstairs">upstairs</option>
+                            <option value="in upstairs">in upstairs</option>
+                        </select>
+                        <span>. ⬆️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5.</span>
+                        <select class="quiz-select q-set-1" data-correct="Where are">
+                            <option value="">--</option>
+                            <option value="Where's">Where's</option>
+                            <option value="Where are">Where are</option>
+                        </select>
+                        <span>the girls?</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. They are</span>
+                        <select class="quiz-select q-set-1" data-correct="downstairs">
+                            <option value="">--</option>
+                            <option value="downstairs">downstairs</option>
+                            <option value="in downstairs">in downstairs</option>
+                        </select>
+                        <span>. ⬇️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. We eat dinner</span>
+                        <select class="quiz-select q-set-1" data-correct="in the">
+                            <option value="">--</option>
+                            <option value="in the">in the</option>
+                            <option value="downstairs">downstairs</option>
+                        </select>
+                        <span>dining room. 🍽️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. I watch TV</span>
+                        <select class="quiz-select q-set-1" data-correct="downstairs">
+                            <option value="">--</option>
+                            <option value="downstairs">downstairs</option>
+                            <option value="in downstairs">in downstairs</option>
+                        </select>
+                        <span>in the living room. 🛋️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-1')">Check Answers (Part A)</button>
+        </div>
+
+        <!-- SLIDE 4: CONTROLLED PRACTICE 2 (8 Items: Yes/No Questions & Answers) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Watch for subject agreement. If the question is "Is he...", the answer
+                    must use "he". If the question is "Are they...", the answer must use "they".
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part B: Yes/No Questions in the Home
+                (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. [ he / Is / the kitchen / in / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is he in the kitchen?">
+                            <option value="">-- Order --</option>
+                            <option value="Is he in the kitchen?">Is he in the kitchen?</option>
+                            <option value="He is in the kitchen?">He is in the kitchen?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 🍳 Is he in the kitchen? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, he is.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                            <option value="Yes, she is.">Yes, she is.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. [ the bedroom / she / in / Is / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Is she in the bedroom?">
+                            <option value="">-- Order --</option>
+                            <option value="Is she in the bedroom?">Is she in the bedroom?</option>
+                            <option value="In the bedroom she is?">In the bedroom she is?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 🛏️ Is she in the bedroom? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, she isn't.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. [ they / in / the garden / Are / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they in the garden?">
+                            <option value="">-- Order --</option>
+                            <option value="Are they in the garden?">Are they in the garden?</option>
+                            <option value="They are in the garden?">They are in the garden?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🌷 Are they in the garden? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, they are.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="Yes, they aren't.">Yes, they aren't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. [ the living room / Are / in / they / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they in the living room?">
+                            <option value="">-- Order --</option>
+                            <option value="Are they in the living room?">Are they in the living room?</option>
+                            <option value="In the living room are they?">In the living room are they?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 🛋️ Are they in the living room? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, they aren't.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-2')">Check Answers (Part B)</button>
+        </div>
+
+        <!-- SLIDE 5: GUIDED PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> House tour roleplay! Have Student A read Tim and Student B read Rosy.
+                    Remind them to use expressive voices as they pretend to look around the house.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 10px; font-weight: bold; font-size: 1.1rem;">Engoo-Style Conversation Practice:
+                Hide and Seek</p>
+
+            <div class="dialogue-box">
+                <p><span class="speaker">Tim:</span> Let's play hide and seek! Where's Billy?</p>
+                <p><span class="speaker">Rosy:</span> Hmm. Is he upstairs in his bedroom?</p>
+                <p><span class="speaker">Tim:</span> Let me check... No, he isn't. He's not upstairs.</p>
+                <p><span class="speaker">Rosy:</span> Look downstairs! Is he in the kitchen with Mum?</p>
+                <p><span class="speaker">Tim:</span> No, he isn't in the kitchen. Where are they?</p>
+                <p><span class="speaker">Rosy:</span> Look outside! Are they in the garden?</p>
+                <p><span class="speaker">Tim:</span> Yes, they are! Billy is playing with his toys in the garden.</p>
+                <p><span class="speaker">Rosy:</span> Found them! Let's go play.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: FREE PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> "Imaginary House Map" game! Student A thinks of a family member hiding
+                    in a specific room. Student B has 3 guesses using "Is he/she in the...?" or "Are they in the...?" to
+                    find them.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--accent);">
+                <h3>🎯 House Detective Game!</h3>
+                <p>Hide a family member in your imaginary house and let your partner guess where!</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🤫</span>
+                    <strong>Step 1</strong><br>Pick a secret room for someone:<br><em>(Dad in the kitchen)</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">❓</span>
+                    <strong>Step 2</strong><br>Partner asks:<br><em>"Is he upstairs? Is he in the...?"</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🗣️</span>
+                    <strong>Step 3</strong><br>Answer clearly:<br><em>"Yes, he is!" / "No, he isn't!"</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONSOLIDATION & EXIT PASS (10 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Final check! Confirm every student answers all 8 items correctly
+                    before ending class.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--success);">
+                <h3>🎉 Exit Pass Checklist</h3>
+                <p>Complete all 8 questions before leaving class!</p>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1.</span>
+                        <select class="quiz-select q-set-exit" data-correct="Where's">
+                            <option value="">--</option>
+                            <option value="Where's">Where's</option>
+                            <option value="Where are">Where are</option>
+                        </select>
+                        <span>Tim? (1 person)</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2.</span>
+                        <select class="quiz-select q-set-exit" data-correct="Where are">
+                            <option value="">--</option>
+                            <option value="Where's">Where's</option>
+                            <option value="Where are">Where are</option>
+                        </select>
+                        <span>the girls? (plural)</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. 🍳 Is he in the kitchen? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, he is.">
+                            <option value="">--</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 🛏️ Is she in the bedroom? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, she isn't.">
+                            <option value="">--</option>
+                            <option value="Yes, she is.">Yes, she is.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. 🌷 Are they in the garden? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, they are.">
+                            <option value="">--</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🛋️ Are they in the living room? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, they aren't.">
+                            <option value="">--</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. The bathroom is</span>
+                        <select class="quiz-select q-set-exit" data-correct="upstairs">
+                            <option value="">--</option>
+                            <option value="upstairs">upstairs</option>
+                            <option value="in upstairs">in upstairs</option>
+                        </select>
+                        <span>. ⬆️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. I am eating</span>
+                        <select class="quiz-select q-set-exit" data-correct="downstairs">
+                            <option value="">--</option>
+                            <option value="downstairs">downstairs</option>
+                            <option value="in downstairs">in downstairs</option>
+                        </select>
+                        <span>in the kitchen. ⬇️</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-exit')">Submit Exit Ticket</button>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <button class="btn" id="prev-btn" onclick="changeSlide(-1)">Previous</button>
+            <button class="btn" id="next-btn" onclick="changeSlide(1)">Next</button>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="footer-copyright">
+            &copy; 2026 EDUGLOT. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        /* SLIDE NAVIGATION */
+        const slides = document.querySelectorAll('.slide-content');
+        const titles = [
+            "Stage 1: Warm-up & Objectives",
+            "Stage 2: Presentation (Where are & Yes/No in Rooms)",
+            "Stage 3: Practice Part A (Where are & Upstairs/Downstairs)",
+            "Stage 3: Practice Part B (Is he/she & Are they)",
+            "Stage 4: Guided Production (Hide and Seek)",
+            "Stage 4: Free Production (House Detective Game)",
+            "Stage 5: Consolidation (Exit Pass)"
+        ];
+        let currentSlide = 0;
+        let activeWordToSpeak = "";
+        let activeExampleToSpeak = "";
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('slide-title').innerText = titles[currentSlide];
+            document.getElementById('slide-indicator').innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === slides.length - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            updateSlide();
+        }
+
+        /* PRINT ALL PAGES ENGINE */
+        function printAllSlides() {
+            slides.forEach(slide => slide.style.display = 'block');
+            window.print();
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        /* MODAL & AUDIO PRONUNCIATION ENGINE */
+        function openModal(word, emoji, phonetic, definition, example) {
+            activeWordToSpeak = word;
+            activeExampleToSpeak = example;
+
+            document.getElementById('modal-emoji').innerText = emoji;
+            document.getElementById('modal-word').innerText = word.toUpperCase();
+            document.getElementById('modal-phonetic').innerText = phonetic;
+            document.getElementById('modal-def').innerText = definition;
+            document.getElementById('modal-example').innerText = `"${example}"`;
+
+            document.getElementById('vocab-modal').classList.add('active');
+            speakText(word);
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'vocab-modal') forceCloseModal();
+        }
+
+        function forceCloseModal() {
+            document.getElementById('vocab-modal').classList.remove('active');
+        }
+
+        function speakCurrentWord() {
+            if (activeWordToSpeak) speakText(activeWordToSpeak);
+        }
+
+        function speakCurrentExample() {
+            if (activeExampleToSpeak) speakText(activeExampleToSpeak);
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* INTERACTIVE SELF-CHECKING */
+        function checkSet(className) {
+            const selects = document.querySelectorAll(`.${className}`);
+            selects.forEach(select => {
+                const expected = select.getAttribute('data-correct');
+                const feedback = select.parentElement.querySelector('.status-msg');
+                if (select.value === expected) {
+                    feedback.textContent = " ✔ Correct";
+                    feedback.style.color = "var(--success)";
+                } else {
+                    feedback.textContent = " ✖ Try again";
+                    feedback.style.color = "var(--danger)";
+                }
+            });
+        }
+
+        /* TEACHER LIVE NOTE EDITING */
+        function toggleEdit(btn) {
+            const textDiv = btn.nextElementSibling;
+            const isEditing = textDiv.getAttribute('contenteditable') === 'true';
+            if (isEditing) {
+                textDiv.setAttribute('contenteditable', 'false');
+                btn.innerText = '✏️';
+            } else {
+                textDiv.setAttribute('contenteditable', 'true');
+                textDiv.focus();
+                btn.innerText = '💾';
+            }
+        }
+
+        updateSlide();
+    </script>
+</body>
+
+</html>
