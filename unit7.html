@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUGLOT - Unit 7: Clothes</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="presentation-container">
+        <!-- Top Branding Bar with Vector Print Button -->
+        <div class="brand-bar">
+            <span>EDUGLOT</span>
+            <div class="brand-bar-right">
+                <span class="tagline">Speak with Confidence</span>
+                <button class="icon-btn-print" onclick="printAllSlides()" title="Print complete student worksheet">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide Header -->
+        <div class="slide-header">
+            <h2 id="slide-title">Stage 1: Warm-up & Objectives</h2>
+            <span class="slide-indicator" id="slide-indicator">Slide 1 / 7</span>
+        </div>
+
+        <!-- VOCAB MODAL (Audio, Definition & Example) -->
+        <div class="modal-overlay" id="vocab-modal" onclick="closeModal(event)">
+            <div class="modal-card">
+                <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+
+                <div class="modal-header-section">
+                    <span class="emoji-lg" id="modal-emoji" style="font-size: 4rem; margin-bottom: 4px;">👕</span>
+                    <h3 id="modal-word" style="font-size: 1.8rem; color: var(--primary); font-weight: 800;">WORD</h3>
+                    <p id="modal-phonetic" style="color: #64748b; font-style: italic; font-size: 1rem;">/phonetic/</p>
+                    <button class="modal-audio-btn" onclick="speakCurrentWord()">🔊 Listen Word</button>
+                </div>
+
+                <div class="modal-details">
+                    <div class="detail-block">
+                        <div class="detail-title">Definition</div>
+                        <p class="detail-text" id="modal-def">Definition text goes here.</p>
+                    </div>
+
+                    <div class="detail-block example-box">
+                        <div class="detail-title">
+                            <span>Example Sentence</span>
+                            <button class="example-sound-btn" onclick="speakCurrentExample()">🔊 Read</button>
+                        </div>
+                        <p class="detail-text" id="modal-example">"Example sentence goes here."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: OBJECTIVES & WARM-UP (10 mins) -->
+        <div class="slide-content active">
+            <div class="objectives-card">
+                <h4>🎯 Lesson Objectives</h4>
+                <ul>
+                    <li>Identify 8 core items of clothing: dress, socks, T-shirt, trousers, shorts, shoes, coat, and
+                        hat.</li>
+                    <li>Accurately apply 3rd person possessive adjectives: <strong>his</strong> (boys) and
+                        <strong>her</strong> (girls).</li>
+                    <li>Form and answer plural Yes/No questions with 'be': <em>"Are they his / her...?" &rarr; "Yes,
+                            they are. / No, they aren't."</em></li>
+                    <li>Distinguish singular (*This is his T-shirt*) from plural clothes (*These are her socks*).</li>
+                </ul>
+            </div>
+
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Warm-up wardrobe check! Point to your own shirt or shoes: "What am I
+                    wearing?" Click each card below to drill singular vs plural pronunciation. Note that words like
+                    trousers, shorts, and socks take plural agreements.
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>👕 Click Any Clothes Item to Hear & Learn!</h3>
+                <p>Listen carefully to the sound, read the example, and repeat out loud.</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="vocab-card"
+                    onclick="openModal('dress', '👗', '/dres/', 'A one-piece garment for a girl or woman that covers the body and hangs down over the legs.', 'This is her pretty pink dress.')">
+                    <span class="emoji-lg">👗</span>dress<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('socks', '🧦', '/sɒks/', 'Soft knitted coverings for the feet worn inside shoes.', 'These are his blue socks.')">
+                    <span class="emoji-lg">🧦</span>socks<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('T-shirt', '👕', '/ˈtiː.ʃɜːt/', 'A simple short-sleeved cotton top with a round neck.', 'This is his favorite green T-shirt.')">
+                    <span class="emoji-lg">👕</span>T-shirt<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('trousers', '👖', '/ˈtraʊ.zəz/', 'A piece of clothing covering the body from the waist to the ankles, with two legs.', 'These are his long black trousers.')">
+                    <span class="emoji-lg">👖</span>trousers<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('shorts', '🩳', '/ʃɔːts/', 'Short trousers that end at or above the knees, worn in warm weather.', 'Are these her red shorts?')">
+                    <span class="emoji-lg">🩳</span>shorts<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('shoes', '👟', '/ʃuːz/', 'Sturdy coverings for feet with thick soles, worn for walking or running.', 'These are her clean white shoes.')">
+                    <span class="emoji-lg">👟</span>shoes<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('coat', '🧥', '/kəʊt/', 'A warm, heavy piece of outdoor clothing with long sleeves.', 'He wears his warm winter coat.')">
+                    <span class="emoji-lg">🧥</span>coat<span class="card-hint">🔊 Click me</span>
+                </div>
+                <div class="vocab-card"
+                    onclick="openModal('hat', '👒', '/hæt/', 'A shaped covering worn on the head for warmth or shade.', 'This is her yellow sun hat.')">
+                    <span class="emoji-lg">👒</span>hat<span class="card-hint">🔊 Click me</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: PRESENTATION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Clarify the difference: <em>his</em> (belonging to a boy/man) and
+                    <em>her</em> (belonging to a girl/woman). Remind students that trousers, shorts, socks, and shoes
+                    are plural: we ask "Are they...?" and answer "Yes, they are" or "No, they aren't".
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h3>Grammar Rules: His / Her & Are they...?</h3>
+                <p><strong>1. Possessive Adjectives:</strong><br>
+                    • <strong>his</strong> = belongs to a boy/man: <em>his T-shirt, his shoes, his coat</em><br>
+                    • <strong>her</strong> = belongs to a girl/woman: <em>her dress, her socks, her hat</em></p>
+                <br>
+                <p><strong>2. Plural Clothes (always with -s):</strong><br>
+                    • <em>trousers, shorts, socks, shoes</em> are plural &rarr; use <strong>they / are</strong>!<br>
+                    • Statement: <em>They're his shorts. (= They are his shorts.)</em></p>
+                <br>
+                <p><strong>3. Yes/No Questions (Are they...?):</strong><br>
+                    • Question: <em><strong>Are they</strong> her shoes? / <strong>Are they</strong> his
+                        trousers?</em><br>
+                    • Positive: <strong>Yes, they are.</strong><br>
+                    • Negative: <strong>No, they aren't.</strong> <em>(aren't = are not)</em></p>
+            </div>
+
+            <div class="vocab-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="vocab-card" style="border-color: #4f46e5;">
+                    <span class="emoji-lg">👦</span>
+                    <strong>HIS (Boy / Man)</strong><br><br>
+                    • This is his T-shirt.<br>• These are his shoes.<br>• This is his coat.
+                </div>
+                <div class="vocab-card" style="border-color: #ec4899;">
+                    <span class="emoji-lg">👧</span>
+                    <strong>HER (Girl / Woman)</strong><br><br>
+                    • This is her dress.<br>• These are her socks.<br>• This is her hat.
+                </div>
+                <div class="vocab-card" style="border-color: #f59e0b;">
+                    <span class="emoji-lg">❓</span>
+                    <strong>ARE THEY...?</strong><br><br>
+                    • Are they his shorts?<br>&rarr; <strong>Yes, they are.</strong><br>&rarr; <strong>No, they
+                        aren't.</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: CONTROLLED PRACTICE 1 (8 Items: His vs Her) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Have students say the complete sentence out loud once they select the
+                    possessive adjective. Point out whether the character in brackets is male or female.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part A: Complete with 'his' or 'her'
+                (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. 👗 (Rosy) This is</span>
+                        <select class="quiz-select q-set-1" data-correct="her">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>dress.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 👕 (Tim) This is</span>
+                        <select class="quiz-select q-set-1" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>T-shirt.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. 🧦 (Alison) These are</span>
+                        <select class="quiz-select q-set-1" data-correct="her">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>socks.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 👖 (Jamie) These are</span>
+                        <select class="quiz-select q-set-1" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>trousers.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. 👒 (Mum) That is</span>
+                        <select class="quiz-select q-set-1" data-correct="her">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>sun hat.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🧥 (Dad) That is</span>
+                        <select class="quiz-select q-set-1" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>warm coat.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. 🩳 (Billy) These are</span>
+                        <select class="quiz-select q-set-1" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>shorts.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 👟 (Rosy) These are</span>
+                        <select class="quiz-select q-set-1" data-correct="her">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>shoes.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-1')">Check Answers (Part A)</button>
+        </div>
+
+        <!-- SLIDE 4: CONTROLLED PRACTICE 2 (8 Items: Are they...? & Short Answers) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Watch for plural responses: With questions starting with "Are
+                    they...?", short answers must use "they are" or "they aren't".
+                </div>
+            </div>
+
+            <p style="margin-bottom: 12px; font-weight: bold; font-size: 1.1rem;">Part B: Questions with 'Are they' &
+                Short Answers (8 Questions)</p>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. [ his shorts / they / Are / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they his shorts?">
+                            <option value="">-- Order --</option>
+                            <option value="They are his shorts?">They are his shorts?</option>
+                            <option value="Are they his shorts?">Are they his shorts?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 🩳 Are they his shorts? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, they are.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. [ her shoes / Are / they / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they her shoes?">
+                            <option value="">-- Order --</option>
+                            <option value="Are they her shoes?">Are they her shoes?</option>
+                            <option value="Her shoes are they?">Her shoes are they?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 👟 Are they her shoes? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, they aren't.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. [ his socks / they / Are / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they his socks?">
+                            <option value="">-- Order --</option>
+                            <option value="Are they his socks?">Are they his socks?</option>
+                            <option value="They are his socks?">They are his socks?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🧦 Are they his socks? (Yes) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Yes, they are.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="Yes, he is.">Yes, he is.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. [ her trousers / they / Are / ? ]</span><br>
+                        <select class="quiz-select q-set-2" data-correct="Are they her trousers?">
+                            <option value="">-- Order --</option>
+                            <option value="Are they her trousers?">Are they her trousers?</option>
+                            <option value="Trousers are they her?">Trousers are they her?</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 👖 Are they his trousers? (No) &rarr;</span><br>
+                        <select class="quiz-select q-set-2" data-correct="No, they aren't.">
+                            <option value="">-- Choose Answer --</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                            <option value="No, he isn't.">No, he isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-2')">Check Answers (Part B)</button>
+        </div>
+
+        <!-- SLIDE 5: GUIDED PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Laundry sorting roleplay! Have Student A read Rosy and Student B read
+                    Tim. Switch roles and run the conversation again with expressive voices.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 10px; font-weight: bold; font-size: 1.1rem;">Engoo-Style Conversation Practice:
+                Sorting the Laundry</p>
+
+            <div class="dialogue-box">
+                <p><span class="speaker">Rosy:</span> Look at the clean clothes on the basket, Tim! Can you help me sort
+                    them?</p>
+                <p><span class="speaker">Tim:</span> Sure! Is this your dress?</p>
+                <p><span class="speaker">Rosy:</span> Yes, it is. That's my pink dress. And what about this green
+                    T-shirt?</p>
+                <p><span class="speaker">Tim:</span> That is Jamie's. It's his T-shirt!</p>
+                <p><span class="speaker">Rosy:</span> Okay! Are they his shorts?</p>
+                <p><span class="speaker">Tim:</span> Yes, they are! They're his blue shorts.</p>
+                <p><span class="speaker">Rosy:</span> And are they his socks?</p>
+                <p><span class="speaker">Tim:</span> No, they aren't! Look at the flowers. They're Alison's socks!</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: FREE PRODUCTION (15 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Fashion Detective Game! Students point to an item of clothing worn by
+                    a character on screen or someone at home, asking: "Are they his/her...?" or "Is this his/her...?"
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--accent);">
+                <h3>🎯 Fashion Detective Game!</h3>
+                <p>Pick an item of clothing and ask your partner to solve whose it is!</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">👕</span>
+                    <strong>Step 1</strong><br>Pick a clothing item:<br><em>(shoes, T-shirt, socks...)</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">❓</span>
+                    <strong>Step 2</strong><br>Ask partner:<br><em>"Are they his / her...?"</em>
+                </div>
+                <div class="exercise-card" style="text-align: center;">
+                    <span class="emoji-lg">🗣️</span>
+                    <strong>Step 3</strong><br>Answer clearly:<br><em>"Yes, they are!" / "No, they aren't!"</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONSOLIDATION & EXIT PASS (10 mins) -->
+        <div class="slide-content">
+            <div class="teacher-cue">
+                <button class="edit-btn" onclick="toggleEdit(this)" title="Edit note">✏️</button>
+                <div class="teacher-notes-text">
+                    <strong>Teacher Tip:</strong> Final check! Confirm every student answers all 8 items correctly
+                    before ending class.
+                </div>
+            </div>
+
+            <div class="rule-box" style="border-left-color: var(--success);">
+                <h3>🎉 Exit Pass Checklist</h3>
+                <p>Complete all 8 questions before leaving class!</p>
+            </div>
+
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>1. 👗 (Rosy) This is</span>
+                        <select class="quiz-select q-set-exit" data-correct="her">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>dress.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>2. 👕 (Tim) That is</span>
+                        <select class="quiz-select q-set-exit" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>T-shirt.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>3. 🩳 Are they his shorts? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, they are.">
+                            <option value="">--</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="Yes, it is.">Yes, it is.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>4. 👟 Are they her shoes? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, they aren't.">
+                            <option value="">--</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                            <option value="No, she isn't.">No, she isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>5. 👖 (Billy) These are</span>
+                        <select class="quiz-select q-set-exit" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>trousers.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>6. 🧦 Are they her socks? (Yes) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="Yes, they are.">
+                            <option value="">--</option>
+                            <option value="Yes, they are.">Yes, they are.</option>
+                            <option value="Yes, they're.">Yes, they're.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>7. 🧥 (Dad) This is</span>
+                        <select class="quiz-select q-set-exit" data-correct="his">
+                            <option value="">--</option>
+                            <option value="his">his</option>
+                            <option value="her">her</option>
+                        </select>
+                        <span>coat.</span><span class="status-msg"></span>
+                    </div>
+                </div>
+                <div class="exercise-card">
+                    <div class="quiz-row">
+                        <span>8. 🩳 Are they his trousers? (No) &rarr;</span>
+                        <select class="quiz-select q-set-exit" data-correct="No, they aren't.">
+                            <option value="">--</option>
+                            <option value="No, they aren't.">No, they aren't.</option>
+                            <option value="No, it isn't.">No, it isn't.</option>
+                        </select>
+                        <span class="status-msg"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" onclick="checkSet('q-set-exit')">Submit Exit Ticket</button>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-footer">
+            <button class="btn" id="prev-btn" onclick="changeSlide(-1)">Previous</button>
+            <button class="btn" id="next-btn" onclick="changeSlide(1)">Next</button>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="footer-copyright">
+            &copy; 2026 EDUGLOT. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        /* SLIDE NAVIGATION */
+        const slides = document.querySelectorAll('.slide-content');
+        const titles = [
+            "Stage 1: Warm-up & Objectives",
+            "Stage 2: Presentation (His / Her & Are they...?)",
+            "Stage 3: Practice Part A (His vs Her)",
+            "Stage 3: Practice Part B (Are they...? Questions)",
+            "Stage 4: Guided Production (Sorting Clothes Dialogue)",
+            "Stage 4: Free Production (Fashion Detective Game)",
+            "Stage 5: Consolidation (Exit Pass)"
+        ];
+        let currentSlide = 0;
+        let activeWordToSpeak = "";
+        let activeExampleToSpeak = "";
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            document.getElementById('slide-title').innerText = titles[currentSlide];
+            document.getElementById('slide-indicator').innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === slides.length - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            updateSlide();
+        }
+
+        /* PRINT ALL PAGES ENGINE */
+        function printAllSlides() {
+            slides.forEach(slide => slide.style.display = 'block');
+            window.print();
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentSlide) ? 'block' : 'none';
+            });
+        }
+
+        /* MODAL & AUDIO PRONUNCIATION ENGINE */
+        function openModal(word, emoji, phonetic, definition, example) {
+            activeWordToSpeak = word;
+            activeExampleToSpeak = example;
+
+            document.getElementById('modal-emoji').innerText = emoji;
+            document.getElementById('modal-word').innerText = word.toUpperCase();
+            document.getElementById('modal-phonetic').innerText = phonetic;
+            document.getElementById('modal-def').innerText = definition;
+            document.getElementById('modal-example').innerText = `"${example}"`;
+
+            document.getElementById('vocab-modal').classList.add('active');
+            speakText(word);
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'vocab-modal') forceCloseModal();
+        }
+
+        function forceCloseModal() {
+            document.getElementById('vocab-modal').classList.remove('active');
+        }
+
+        function speakCurrentWord() {
+            if (activeWordToSpeak) speakText(activeWordToSpeak);
+        }
+
+        function speakCurrentExample() {
+            if (activeExampleToSpeak) speakText(activeExampleToSpeak);
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        /* INTERACTIVE SELF-CHECKING */
+        function checkSet(className) {
+            const selects = document.querySelectorAll(`.${className}`);
+            selects.forEach(select => {
+                const expected = select.getAttribute('data-correct');
+                const feedback = select.parentElement.querySelector('.status-msg');
+                if (select.value === expected) {
+                    feedback.textContent = " ✔ Correct";
+                    feedback.style.color = "var(--success)";
+                } else {
+                    feedback.textContent = " ✖ Try again";
+                    feedback.style.color = "var(--danger)";
+                }
+            });
+        }
+
+        /* TEACHER LIVE NOTE EDITING */
+        function toggleEdit(btn) {
+            const textDiv = btn.nextElementSibling;
+            const isEditing = textDiv.getAttribute('contenteditable') === 'true';
+            if (isEditing) {
+                textDiv.setAttribute('contenteditable', 'false');
+                btn.innerText = '✏️';
+            } else {
+                textDiv.setAttribute('contenteditable', 'true');
+                textDiv.focus();
+                btn.innerText = '💾';
+            }
+        }
+
+        updateSlide();
+    </script>
+</body>
+
+</html>
